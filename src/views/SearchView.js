@@ -79,11 +79,12 @@ export class SearchView extends LitElement {
 
   async _handleLocateMeClick(e) {
     e.target.blur();
+
     try {
       const {
         coords: { latitude, longitude },
       } = await detectUserLocation();
-  
+
       this.latitude = latitude;
       this.longitude = longitude;
     } catch (err) {
@@ -95,11 +96,11 @@ export class SearchView extends LitElement {
     const {
       detail: { latitude, longitude },
     } = e;
-  
+
     if (!latitude || !longitude) {
       return;
     }
-  
+
     this.latitude = latitude;
     this.longitude = longitude;
   }
